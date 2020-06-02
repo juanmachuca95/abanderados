@@ -1,0 +1,40 @@
+Logica y Matematica Computacional
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OGiap9yRy-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Lógica - Enunciados - Formalizar - Conectores - Leyes Logicas - Circuitos Logicos
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qw_ASpWzfeY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Introducción a las Relaciones de Recurrencia
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p58C7OWe3Xk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Introducción al Algebra de Boole
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Nx3xg6oQe8Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Estructuras Algebraicas
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PdA1Jz6iEWQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Teoría de Grafos I
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kD9dGFDYPPk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Teoría de Grafos II
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/57yhBHFCb7w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Camino y circuito Euleriano
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zzL7-3Xc9H8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Conceptos básicos y terminología de árboles
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lyvH-JMhgyM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Árboles binarios completos
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2jp3DWkwOek" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Recorrido de árboles binarios
+
+
+
+

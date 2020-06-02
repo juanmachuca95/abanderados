@@ -1,0 +1,34 @@
+(defun tp3ejer8()
+	(let (a b c)
+		(write "ingresa valor a:")
+		(setq a(read))
+		(write "ingresa valor b:")
+		(setq b(read))
+		(write "ingresa valor c:")
+		(setq c(read))
+		(cond
+			((> a b c)'a_es_mayor)
+			((> b a c) 'b_es_mayor)
+			((> c b a) 'c_es_mayor)
+		)
+	)
+)
+
+
+
+TP3EJER8
+Break 1 [5]> (TP3EJER8)
+"ingresa valor a:"2
+"ingresa valor b:"3
+"ingresa valor c:"1
+
+B_ES_MAYOR
+Break 1 [5]> (TP3EJER8)
+"ingresa valor a:"11
+"ingresa valor b:"3
+"ingresa valor c:"1
+
+A_ES_MAYOR
+Break 1 [5]> 
+
+

@@ -1,0 +1,48 @@
+(progn
+	(setq A'(a b c d))
+	(append A '(e f g))
+	(list A)
+)
+
+
+
+(progn
+	(setq A'(a b c d))
+	(setq A (append A'(e f g)))
+	(list A)
+)
+
+
+(A B C D)
+Break 10 [14]> (progn
+	(setq A'(a b c d))
+	(append A '(efg))
+	(list A)
+)
+
+((A B C D))
+Break 10 [14]> 
+(progn
+	(setq A'(a b c d))
+	(setq A (append A'(e f g)))
+	(list A)
+)
+
+((A B C D E F G))
+Break 10 [14]> A
+
+(A B C D E F G)
+Break 10 [14]> (progn
+	(setq A'(a b c d))
+	(append A '(e f g))
+	(list A)
+)
+
+((A B C D))
+Break 10 [14]> (progn
+	(setq A'(a b c d))
+	(append A '(e f g))
+)
+
+(A B C D E F G)
+Break 10 [14]> 

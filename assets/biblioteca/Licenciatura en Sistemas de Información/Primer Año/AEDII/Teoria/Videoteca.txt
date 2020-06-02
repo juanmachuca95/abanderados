@@ -1,0 +1,80 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8a5329-cebM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+5.Programación en C - Bucles o Ciclos.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_6AdtcVn4xs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+6.Programación en C++ || Ciclos o Bucles|| La sentencia for
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l-kOjxvgyDQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+7.Programación en C++ || Arreglos || Concepto de Arreglo Unidimensional
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P_xNb8nFgmA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+8.Programación en C++ || Ordenamientos || Método Burbuja
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lYNyL0HuWSg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+9.Programación en C++ || Ordenamientos || Ordenamiento por Inserción
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HVa2_UtXkCI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+10.Programación en C++ || Ordenamientos || Ordenamiento por Selección
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i9roxX8z7tk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+11.Programación en C++ || Funciones || Recursividad - Factorial de un número
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SsCG68-hM88" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+12.Programación en C++ || Funciones || Ejercicio - Recursividad para la suma
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Lh9WjVietg0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+13.Programación en C++ || Funciones || Ejercicio - Elevacion de un número con recursividad
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/joAw2jWgZqA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+14.Programación en C++ || Pilas || Concepto de Pila
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/joAw2jWgZqA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+15. Programación en C++ || Pilas || Insertar elementos a la pila
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/43J-ug4xUXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+16.Programación en C++ || Pilas || Ejercicio - Insertar y quitar elementos de una pila
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5CClpYQTGUI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+17.Programación en C++ || Colas || Concepto de Cola
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AoepPzqwggU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+18.Programación en C++ || Colas || Insertar elementos en una cola
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4LeCy6qR3kY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+19.Programación en C++ || Colas || Ejercicio - Insertar y eliminar elementos de una cola
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15urP2LmfqY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+20.Programación en C++ || Listas || Concepto de Lista Enlazada
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cPcDuIUqEO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+21.Programación en C++ || Listas || Insertar elementos en una lista enlazada
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lbp-sAvM9D8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+22.Programación en C++ || Listas || Mostrar los elementos de la lista
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W86jnUUY2zA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+23. Programación en C++ || Listas || Buscar un elemento en una lista enlazada
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k2kx7hupEy4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+24.Programación en C++ || Árboles || Concepto de Árboles
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ruc7maS2-SM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+25.Programación en C++ || Árboles || Árbol binario de búsqueda - ABB
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YQAWruF0iwQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+26.Programación en C++ || Árboles || Insertar nodos en un árbol binario de búsqueda ABB
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eZfXKHrMyo8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+27.Programación en C++ || Árboles || Mostrar el árbol completo
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/A70r8Xh9StU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+28.Programación en C++ || Árboles || Buscar un nodo en el árbol
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/omNr8fVp4r0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+29.Programación en C++ || Árboles || Recorrido de un árbol en PreOrden
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qe0jb9YZtXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+30.Programación en C++ || Árboles || Recorrido de un árbol en InOrden
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W0FYXBSSVVo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+31.Programación en C++ || Árboles || Recorrido de un árbol en PostOrden

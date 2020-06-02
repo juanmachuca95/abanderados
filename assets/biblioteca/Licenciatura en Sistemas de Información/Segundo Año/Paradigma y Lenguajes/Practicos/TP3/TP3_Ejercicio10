@@ -1,0 +1,21 @@
+(defun tp3ejer10()
+	(let (a)
+		(write "moneda en pesos ARS$: ")
+		(setq a(read))
+
+		(if (numberp a)
+			(setq DIVISAS (append (list(* 20 a)) (list(* 24 a)) (list(* 0.25 a)) ))
+		)
+	)	
+)
+
+dollar = 20; euro = 24; real = 0.25
+
+(tp3ejer10)
+"moneda en pesos ARS$: "2
+
+(40 48 0.5)
+Break 8 [12]> DIVISAS
+
+(40 48 0.5)
+Break 8 [12]> 

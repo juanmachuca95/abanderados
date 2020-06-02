@@ -1,0 +1,153 @@
+@font-face { 
+	 font-family: 'Bradley Hand ITC'; src: url('fonts/bradley/bradley_hand_itc.eot');
+	 src: url('fonts/bradley/bradley_hand_itc.eot?#iefix') format('embedded-opentype'),
+	 url('fonts/bradley/bradley_hand_itc.svg#Bradley Hand ITC') format('svg'),
+	 url('fonts/bradley/bradley_hand_itc.woff') format('woff'),
+	 url('fonts/bradley/bradley_hand_itc.ttf') format('truetype');
+	 }
+/******************** CSS Configuración HTML, Body ********************/
+html, body {
+	margin:0px 0px 0px 0px;
+	text-indent:0px; 
+	padding:0px 0px 0px 0px;
+	height:100%; 
+	width:100%; 
+	min-width:1000px;
+	border:0px;
+	color:white;
+	background:none; 
+	font:normal 16px tahoma,verdana,arial,sans-serif;
+	}
+body{
+	background: url(../images/fondo_pagina.jpg) no-repeat center center fixed; 
+	background-size: 100% 100%;
+	}
+p,img{
+	color:white;
+	padding:0;	
+	margin:0;
+	border:none;
+	}
+#table_eje_6{
+	margin:20px auto;
+	width:500px;
+	height:200px;
+	border:2px solid orange;
+	text-align:center;
+	}
+#table_eje_6 td{
+	border:2px solid orange;
+	width:125px;
+	background:black;
+	}	
+/* ***************** Otros ***************** */
+.f_right{
+	float:right;
+	}
+.f_left{
+	float:left;
+	}
+.titulo_uno{
+	background: url('../images/transparencia_gris.png'); 
+	border:1px dotted gray; 
+	text-align:center; 
+	width:80%; 
+	word-break:break-all; 
+	font-size:17px;
+	font-weight:bold;
+	display:block; 
+	margin:30px auto 20px auto;
+	padding:5px 0px;
+	}		
+/******************** Contenedor General de la Cabecera de la Página ********************/			
+#cabecera {
+	width:100%; 
+	height:45px;
+	margin:0;
+	padding:0;
+	border-bottom:1px solid gray;
+	background:url(../images/fondo_cabecera_pie.jpg);
+	overflow:hidden;
+	}
+	
+.ejercicio_uno{
+	margin-left:20%;
+	font-weight:bold;
+	padding:5px 0px;
+	}
+.ejercicio_uno span{
+	text-decoration:underline;
+	`}
+.ejercicio_dos{
+	text-align:center;
+	font-weight:bold;
+	padding:5px 0px;
+	}
+.ejercicio_cuatro{
+	text-align:center;
+	margin:0 auto;
+	}
+.ejercicio_form{
+	text-align:center;
+	font-weight:bold;
+	padding:5px 0px;
+	}	
+.ejercicio_form input{ height:25px; width:300px;}
+.ejercicio_form select{ height:25px; width:300px;}
+.ejercicio_form textarea{ min-height:60px; max-height:60px; height:60px; min-width:300px; max-width:300px; width:300px;}
+/******************* Interno de la Cabecera de la Página ********************/		
+#cabecera_interno {
+	cursor:pointer;
+	width:100%;
+	height:45px;
+	}
+	
+#cabecera_interno p {	
+	font-family: 'Bradley Hand ITC'; 
+	font-size:35px;
+	font-weight:bold;
+	line-height:45px;
+	text-align:center;
+	}
+.p_ejercicios{
+	text-align:center;
+	}
+.top{
+	margin-top:20px;
+	}
+/****************** Contenedores Informacion ********************/	
+
+#contenedor_general{ 
+	position:relative;
+	width:80%;
+	min-width:800px; 
+	height:auto;
+	margin:0 auto; 
+	padding:0;
+	border-left:1px dotted gray;
+	border-right:1px dotted gray;
+	padding-bottom:20px; 
+	color:white; 
+	min-height:500px;
+	}
+
+	
+/******************* Pie de Página *******************/
+#pie_pagina {
+	clear:both; 
+	min-height:285px;
+	height:100%;
+	width:100%; 
+	margin:0px 0px 0px 0px; 
+	overflow:hidden; 
+	padding:0px 0px 1px 0px; 
+	background:#3a4652 url(../images/fondo_cabecera_pie.jpg) repeat-x; 
+	border-top:1px solid gray;
+	}
+
+#copyright{
+	clear:both;
+	text-align:right; 
+	padding-top:10px; 
+	margin:0px 20px 0px 0px;
+	}

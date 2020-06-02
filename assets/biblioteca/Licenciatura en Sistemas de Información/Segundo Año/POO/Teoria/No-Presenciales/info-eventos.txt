@@ -1,0 +1,71 @@
+JFrame, JDialog y otras ventanas
+Cuando queremos hacer ventanitas en java nos encontramos con dos ventanas: El JFrame y el JDialog. ¿Cuándo se usa una u otra?, ¿Qué diferencias hay entre ellas?.
+
+Los JDialog admiten un padre y pueden ser o no modales. ¿Para qué sirve ese padre? ¿Puedo hacer cualquier JDialog modal?
+
+Otras veces queremos hacer una ventana de error, de aviso, para pedir un dato o confirmar algo. ¿Pongo JFrame o JDialog para esas ventanas? ¿Tengo que construirla?
+
+Vamos a tratar en este tutorial de echar un vistazo a JFrame y JDialog, así como a JOptionPane y ver cuándo usamos una u otra. Trataremos de responder a todas estas preguntas.
+
+JFrame y JDialog
+Los dos tipos de ventanas principales que tenemos en java son JFrame y JDialog. Hay varias diferencias entre ellas y en función de estas diferencias vamos a ver para qué sirven
+
+Si instanciamos un JFrame, en la barra de abajo de windows (creo que se llama "barra de herramientas") nos aparece un nuevo "botoncito" correspondiente a nuestra aplicación. Si instanciamos un JDialog, no aparece nada.
+Un JFrame tiene un método setIconImage() para cambiar el icono por defecto de la taza de café. JDialog no tiene este método.
+Un JDialog admite otra ventana (JFrame o JDialog) como padre en el constructor. JFrame no admite padres.
+Un JDialog puede ser modal, un JFrame no.
+Todo esto nos indica lo siguiente:
+
+Un JFrame debe ser la ventana principal de nuestra aplicación y sólo debe haber una.
+Las ventanas secundarias de nuestra aplicación deben ser JDialog.
+Los motivos de esto son los siguientes.
+
+Al mostrar el JFrame un botón en la barra de herramientas de windows y tener método para cambiar el icono, es la ventana ideal como ventana principal de nuestra aplicación y sólo debe haber una. Nos permite cambiar el icono y sólo debe haber un botón en la barra de herramientas de windows para nuestra aplicación.
+
+Si usamos un JDialog como ventana principal, no tenemos botón en la barra de herramientas y no hay forma fácil de cambiarle el icono.
+
+Los JDialog son ideales para ventanas secundarias porque admiten una ventana padre. Si la VentanaA es padre del JDialogB, entonces el JDialogB siempre estará por delante de VentanaA, nunca quedará por detrás. Lo ideal es que hagamos nuestras ventanas secundarias como JDialog cuyo padre sea el JFrame principal. De esta forma los JDialog siempre serán visibles por encima del JFrame y no se irán detrás ni quedarán ocultos por el JFrame.
+
+Otra ventaja de admitir un padre es que heredan el icono de él. Si hemos cambiado el icono del JFrame con el método setIconImage(), entonces todos los JDialog que hagamos como hijos de este JFrame heredarán el icono. Todas las ventanas de nuestra aplicación tendrán el mismo icono en lugar de la taza de café por defecto.
+
+Jerarquía de padres y ventanas modales
+Un JDialog puede ser modal, pasándole un true en el constructor en el sitio adecuado o haciéndolo modal con el método setModal(). Si hacemos un JDialog modal, todas las demás ventanas se deshabilitarán hasta que el usuario de nuestro programa cierre el JDialog. Esto está estupendo para pedir un dato al usuario y evitar que toque otras cosas hasta que haya introducido el dato. Sin embargo, tiene un peligro.
+
+Supongamos un JDialog que lo hacemos modal para pedir unos datos al usuario. Este JDialog tiene un botón de "Aceptar" para que el usuario lo pulse cuando haya terminado de introducir los datos. Supongamos que en el código de ese botón "Aceptar" comprobamos los datos que ha metido el usuario y vemos que son incorrectos. Le sacamos un segundo JDialog modal para indicarle el error y no cerramos el primero.
+
+¿Quién debe ser el padre de ese segundo JDialog modal?. Si hacemos que el padre sea el JFrame tendremos dos JDialog modales hijos del JFrame, es decir, dos JDialog modales hermanos. Esto nos dará problemas, como que ambas ventanas queden deshabilitadas, que al cerrar una de ellas se nos oculten todas, que parte de la ventana quede deshabilitada mientras que otra parte no, etc.
+
+Entonces, ¿cómo hacemos?. Para que java no haga cosas raras, el padre del segundo JDialog modal debe ser el primer JDialog modal. De esta forma, el segundo tiene "prioridad" sobre el primero. Todo queda deshabilitado excepto este segundo JDialog. Cuando lo cerremos, será el primero el que mande.
+
+Resumiendo, si queremos varias ventanas modales simultáneamente en pantalla, cada ventana que se muestre debe ser padre de la siguiente, de forma que la cadena de ventanas modales sean padre, hijo, nieto, etc. Tener dos ventanas modales simultaneas que sean hermanas o primas o cualquier otra relación que no sea directa, nos dará problemas.
+
+JOptionPane
+Para hacer ventanas sencillas que avisen de un error al usuario y tengan un botón de "Cerrar", o que le pidan una confirmación para hacer algo (como borrar un fichero) y tengan dos botones de "Si" y "No", o para pedirle que elija una opción entre varias disponibles ... tenemos suerte. No hay que construir la ventana.
+
+La clase JOptionPane de java tiene métodos showConfirmDialog(), showInputDialog(), showOptionDialog(), showMessageDialog(). Estos métodos mostarán una ventana modal que pide al usuario una confirmación, que le pide un dato o le muestra un mensaje. En caso de que el usuario tenga que elegir algo, el método usado devuelve el valor elegido.
+
+Por ejemplo, para mostrar un aviso de error, nos basta esta simple línea de código
+
+JOptionPane.showMessageDialog(ventanaPadre, "mensaje de error", "título de la ventana", JOptionPane.ERROR_MESSAGE);
+
+Esto mostrará el mensaje de error y detendrá la ejecución del código hasta que el usuario cierre la ventana.
+
+Ahora viene el dato importante. Esta ventana es modal y admite un padre. Si ya hay una ventana modal visible en pantalla, deberías pasar esa ventana como padre de esta para no tener problemas.
+
+JInternalFrame
+El JInternalFrame es una ventana especial que ni es ventana ni es nada. De hecho, no hereda de Window. En realidad es un componente java que se dibuja dentro de otro componente, pero adornado con la barra de título de una ventana y sus botones de maximizar, minimizar y cerrar. Puede incluso arrastrarse y modificarse de tamaño siempre que se mete dentro del componente adecuado.
+
+El sitio bueno para meter los JInternalFrame es el JDesktopPane. Este panel admite JInternalFrame y sabe manejarlos.
+
+JFrame ventana = new JFrame();
+JDesktopPane desktop = new JDesktopPane();
+ventana.getContentPane.add(desktop);
+JInternalFrame internal = new JInternalFrame();
+desktop.add(internal);
+
+En este código el JInternalFrame se comportará como una ventana, pero que no puede salirse del JDesktop que la contiene.
+
+Resumen
+En nuestra aplicación debe haber un JFrame y sólo uno, que será la ventana principal.
+Todas las ventanas secundarias deben ser JDialog y todos los JDialog deberían tener padre.
+Todos los JDialog modales visibles a la vez en pantalla, deben ser unos hijos de otros en una cadena "padre-hijo-nieto" directa. No pueden ser "hermanos", ni "primos" ni "sobrinos".
