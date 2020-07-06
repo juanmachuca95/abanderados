@@ -50,6 +50,22 @@ class Autenticar extends CI_Model{
         }
         return false;
     }
+
+    function actualizar_imagen($data){
+        $this->db->where('id_usuario',$data['id_usuario']);
+        $this->db->set('imagen',$data['imagen']);
+        if($this->db->update('usuarios')){
+            return true;
+        }
+        return false;
+    }
+
+    function get_instituciones(){
+        if($sql = $this->db->get('instituciones')){
+            return $sql->result();
+        }
+        return 0;
+    }
 }
 
 ?>

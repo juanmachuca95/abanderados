@@ -1,45 +1,49 @@
-    <script src="<?php echo base_url()?>/assets/js/jquery/editor.js"></script>
+    <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
+    <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.js"></script>
     <script src="<?=base_url()?>/assets/js/mi_jquery.js"></script>
     <script src="<?=base_url()?>/assets/js/validation.js"></script>
-    <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.js"></script>
-    <script src="<?php echo base_url()?>assets/js/bootstrap.js"></script>
+    <script src="<?=base_url('/assets/js/funciones_biblioteca.js')?>"></script>
+    <script src="<?=base_url('assets/js/mis_funciones_admin/funciones.js')?>"></script>
 </body>
-<footer>
-<div class="container-fluid bg-dark text-white p-0">
-    <div class="container p-0">
-        <div class="row pt-5 pb-3 m-0">
-            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                <div class="text-center">
-                    <p class="font-weight-bold">&#x1f393;Abanderados</p>
-                    <p>¿Quienes Somos?</p>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center align-items-center">   
-                <div class="text-center">
-                    <p ><a class="text-decoration-none text-white" href=""> Contactos </a></p>
-                    <p ><a class="text-decoration-none text-white" href=""> Instituciones </a></p>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                <div>
-                    <p>Seguinos
-                        <a class="px-1" href="<?=base_url()?>">
-                            <img src="<?=base_url('assets/icons/f.png')?>" width="30px" alt="facebook">
-                        </a>
-                        <a class="px-1" href="<?=base_url()?>">
-                            <img src="<?=base_url('assets/icons/i.png')?>" width="30px" alt="instagram">
-                        </a>
-                        <a class="px-1" href="<?=base_url()?>">
-                            <img src="<?=base_url('assets/icons/t.png')?>" width="30px" alt="twitter">
-                        </a>
-                    </p>
+<div class="container-fluid p-0 bg-light">
+        <div class="container p-0">
+            <div class="row m-0">
+                <div class="col-md-12 p-5">
+                    <div class="text-left">
+                        <h2 class="fontGoogle">
+                            <img src="<?=base_url('assets/img/sistema/abanderados.svg')?>" alt="logo" width="45"></img>
+                            Abanderados
+                        </h2>
+                    </div>
+                    <hr class="text-dark">
+                    <div class="row m-0 d-flex align-items-center">
+                        <div class="col-12 col-sm-12 col-md-6 p-0">
+                            <p class="p-0">
+                                <a class="text-decoration-none fontGoogle azulMarino" href="<?=base_url('nosotros')?>"> Nosotros </a> -
+                                <a class="text-decoration-none fontGoogle azulMarino" href="<?=base_url('terminos')?>"> Politica & Privacidad </a>
+                            </p> 
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 fontGoogle p-0">
+                            <h2 class="text-right">    
+                                <p>
+                                    Seguinos
+                                    <a class="text-decoration-none" href="https://www.facebook.com/Abanderados-109760453837610">
+                                    <i class="fab fa-facebook-square azulFuerte"></i>
+                                    </a>
+                                    <a class="text-decoration-none" href="#">
+                                    <i class="fab fa-instagram azulFuerte"></i>
+                                    </a>
+                                    <a class="text-decoration-none" href="#">
+                                    <i class="fab fa-twitter azulFuerte"></i>
+                                    </a>
+                                </p>
+                            </h2>
+                        </div>   
+                    </div>
+                    <p><small class="font-weight-light text-muted">Abanderados® 2020</small></p>
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <small class="font-weight-lighter">Todos los derechos reservados &#x1f393;Abanderados® 2020</small> 
-        </div>
-    </div>
+    </footer>
 </div>
-</footer>
 </html>

@@ -1,0 +1,20 @@
+(defun ejer5 ()
+	(let (lista numero)
+		(print "ingrese lista:")
+		(setq lista (read))
+		(print "ingrese numero:")
+		(setq numero (read))
+		(if (and (consp lista) (numberp numero))
+			(mapcar
+				(lambda (elem)
+					(if  (numberp elem)
+						(list elem (expt elem numero))
+						'no_es_numero
+					)
+				)
+				lista
+			)
+			(pprint "error en los parametros")
+		)
+	)
+)

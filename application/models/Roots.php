@@ -6,11 +6,13 @@ class Roots extends CI_Model{
         $this->load->database();
     }
 
-    function habilitar($correo,$pass){
+    function habilitar($correo,$pass,$codigo){
         $this->db->where('correo', $correo);
         $this->db->where('password', $pass);
-        if($datos = $this->db->get('administradores')){
-            return true;
+        $this->db->where('codigo', $codigo);
+        $datos = $this->db->get('administradores');
+        if($datos->num_rows() == 1){
+            return $datos->row();
         }
         return false;
     }

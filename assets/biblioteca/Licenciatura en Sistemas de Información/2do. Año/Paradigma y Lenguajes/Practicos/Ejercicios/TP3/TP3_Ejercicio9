@@ -1,0 +1,17 @@
+(defun tp3ejer9 ()
+	(let (a)
+		(write "ingresa una lista: ")
+		(setq a (read))
+		(if (consp a)
+			(butlast (cdr a))
+		)
+	)
+)
+
+
+TP3EJER9
+Break 1 [5]> (tp3ejer9)
+"ingresa una lista: "(juan yo maria)
+
+(YO)
+Break 1 [5]> 

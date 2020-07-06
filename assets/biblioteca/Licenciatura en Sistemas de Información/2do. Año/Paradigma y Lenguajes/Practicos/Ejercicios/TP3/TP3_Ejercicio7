@@ -1,0 +1,33 @@
+(defun tp3ejer7()
+	(let (a b c)
+		(write "ingresa valor a: ")
+		(setq a (read))
+		(write "ingresa valor b: ")
+		(setq b (read))
+		(write "ingresa valor c: ")
+		(setq c (read))
+		(if (and (numberp a) (numberp b) (numberp c) (< (- (* b 2) (* 4 a c)) 0) )
+			(pprint "es menor que cero")
+			(pprint "es mayor que cero")
+		)
+	)
+)
+
+B2 - 4AC es menor que cero,
+
+
+Break 1 [5]> (tp3ejer7)
+"ingresa valor a: "4
+"ingresa valor b: "1
+"ingresa valor c: "1
+
+"es menor que cero"
+
+Break 1 [5]> (tp3ejer7)
+"ingresa valor a: "1
+"ingresa valor b: "4
+"ingresa valor c: "1
+
+"es mayor que cero"
+
+Break 1 [5]> 

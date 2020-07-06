@@ -20,16 +20,23 @@
             return false;
         }
 
-        function get_links($carrera, $materia){
-            $this->db->select('*');
-            $this->db->where('carrera',$carrera);
-            $this->db->where('materia',$materia);
-            $sql = $this->db->get('videoteca');
-            if($sql->num_rows() == 1){
-                return $sql->row();
+        //Lista las materias que contienen los links de video guias. 
+        function get_datos($codigo){
+            $this->db->where('id_institucion',$codigo);
+            if($sql = $this->db->get('videoteca')){
+                return $sql->result();
             }
             return false;
         }
 
+        //lista todos los links de una materia en especifico. 
+        function get_linksMateria($codigo){
+            $this->db->select('links');
+            $this->db->where('id_materia', $codigo);
+            if($sql = $this->db->get('videoteca')){
+                return $sql->row();
+            }
+            return false;
+        }
     }
 ?>

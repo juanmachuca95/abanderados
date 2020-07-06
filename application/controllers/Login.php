@@ -6,55 +6,19 @@ class Login extends CI_Controller{
         parent::__construct();
         $this->load->model('Autenticar');
         $this->load->model('Noticias');
+        $this->load->model('Hemeroteca');
         $this->load->library(array('session'));
     }
 
     public function index(){
         if($this->session->userdata('is_logged')){
-            $data = $this->templateWelcome();
-            $this->load->view('welcome',$data);
+            redirect('welcome','refresh');
         }else{
             $data = $this->getTemplate();
             $this->load->view('login', $data);    
         }
     }
 
-    function ingresar(){
-        $correo = $this->input->post('correo','', true);
-        $pass   = $this->input->post('password','', true);
-        //echo $correo." ".$pass;
-        //echo "<br>".password_hash($pass, PASSWORD_BCRYPT);
-        if($dato = $this->Autenticar->login($correo, $pass)){
-
-            //Si el usuario activo la cuenta por correo entrara. 
-            //echo "<br>Datos encontrados";
-            if($dato->activo == true){
-                $data = array(
-                    'id_usuario' => $dato->id_usuariv,
-                    'nombre'     => $dato->nombre,
-                    'apellido'   => $dato->apellido,
-                    'correo'     => $dato->correo,
-                    'imagen'     => $dato->imagen,
-                    'is_logged'  => true,
-                );
-                //Variables de session
-                $this->session->set_userdata($data);
-                $data =  $this->templateWelcome();
-                $this->load->view('welcome',$data);
-            }else{
-                //echo "<br>Usuario no confirmado";
-                $this->session->set_flashdata('mensaje', 'Necesitas activar tu cuenta antes de ingresar.');
-                $data = $this->getTemplate();
-                $this->load->view('login', $data);
-            }
-        }else{
-            $this->session->set_flashdata('mensaje', '¡Ups! Datos incorrectos intentalo de nuevo o registrate.');
-            $data = $this->getTemplate();
-            $this->load->view('login', $data);
-        }
-    }
-
-    
     public function getTemplate(){
 		$data =  array(
 			'head' => $this->load->view('layout/head','',true),
@@ -66,18 +30,37 @@ class Login extends CI_Controller{
 		 );
 		return $data;
     }
-    
-    function templateWelcome(){
-        $data =  array(
-            'noticias' 		=> $this->Noticias->bloquenoticias(2,0), 
-            'current_page' 	=> 0,
-            'last_page' 	=> ceil($this->Noticias->cantidadnoticias() / 2 ),
-            'head'          => $this->load->view('layout/head','',true),
-            'footer'        => $this->load->view('layout/footer', '', true),
-            'nav'           => $this->load->view('layout/nav','',true),
-            'aside'         => $this->load->view('layout/aside','',true)
-        );
-        return $data;
+
+    function ingresar(){
+        $correo = $this->input->post('correo','', true);
+        $pass   = $this->input->post('password','', true);
+        //echo $correo." ".$pass;
+        //echo "<br>".password_hash($pass, PASSWORD_BCRYPT);
+        if($dato = $this->Autenticar->login($correo, $pass)){
+            //Si el usuario activo la cuenta por correo entrara. 
+            //echo "<br>Datos encontrados";
+            if($dato->activo == true){
+                $data = array(
+                    'id_usuario'        => $dato->id_usuario,
+                    'nombre'            => $dato->nombre,
+                    'apellido'          => $dato->apellido,
+                    'correo'            => $dato->correo,
+                    'imagen'            => $dato->imagen,
+                    'cod_institucion'   => $dato->id_institucion,
+                    'is_logged'         => true,
+                );
+                $data['interes'] = $this->Hemeroteca->biblioteca_individual($data['cod_institucion']);
+                $this->session->set_userdata($data);
+                redirect('welcome','refresh');
+            }else{
+                //echo "<br>Usuario no confirmado";
+                $this->session->set_flashdata('mensaje', 'Necesitas activar tu cuenta antes de ingresar.');
+                redirect('login','refresh');
+            }
+        }else{
+            $this->session->set_flashdata('mensaje', '¡Ups! Datos incorrectos intentalo de nuevo o registrate.');
+            redirect('login','refresh');
+        }
     }
 
     function registro(){
@@ -85,7 +68,8 @@ class Login extends CI_Controller{
         $apellido   = $this->input->post('apellido','',true);
         $correo     = $this->input->post('correo','',true);
         $password   = $this->input->post('password','',true);
-
+        $institucion= $this->input->post('institucion','',true);
+        $img_default = 'assets/img/sistema/img_default.jpg';
         //echo $nombre." ".$apellido." ".$correo." ".$password;
         $password =  password_hash($password, PASSWORD_BCRYPT);
         //esto genera un codigo unico para el usuario. 
@@ -93,12 +77,14 @@ class Login extends CI_Controller{
         //echo "<br>Codigo de activacion : ".$codigo;
         //echo "<br>Contraseña encryptada : ".$password;
         $data = array(
-            'nombre'    => $nombre,
-            'apellido'  => $apellido,
-            'correo'    => $correo,
-            'password'  => $password,
-            'activo'    => false,
-            'codigo'    => $codigo,
+            'nombre'            => $nombre,
+            'apellido'          => $apellido,
+            'id_institucion'    =>$institucion,
+            'correo'            => $correo,
+            'password'          => $password,
+            'imagen'            => $img_default,
+            'activo'            => false,
+            'codigo'            => $codigo,
         );
 
         //si no es un usuario registrado con un correo existente, registrara. 
@@ -130,18 +116,17 @@ class Login extends CI_Controller{
             if($this->email->send()){
                 $this->session->set_flashdata('mensaje','
                 Se te ha enviado un email de confirmacion &#x2709;.');
-                $dato = $this->getTemplate();
-                $this->load->view('login',$dato);
+                //$dato = $this->getTemplate();
+                //$this->load->view('login',$dato);
+                redirect('login','refresh');
             }else{
                 $this->session->set_flashdata('mensaje','
                 Vuelve a intentarlo y asegurate de escribir bien el correo electronico.');
-                $dato = $this->getTemplate();
-                $this->load->view('login',$dato);
+                redirect('login','refresh');
             }
         }else{
             $this->session->set_flashdata('mensaje', 'Ya existe un usuario con el mismo correo');
-            $data = $this->getTemplate();
-            $this->load->view('login',$data);
+            redirect('login','refresh');
         } 
     }
 
@@ -195,4 +180,9 @@ class Login extends CI_Controller{
         }
     }
 
+    /*Enviar al formulario de registro los datos de preferencia de logeo del */ 
+    function preferencias(){
+        $datos = $this->Autenticar->get_instituciones();
+        echo json_encode($datos);
+    }   
 }

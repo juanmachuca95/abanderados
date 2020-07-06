@@ -16,13 +16,6 @@ class Noticias extends CI_Model{
         }
     }
 
-    function obtenernoticias(){
-        if($sql = $this->db->get('noticias')){
-            return $sql->result();
-        }else{
-            return false;
-        }
-    }
 
     function cantidadnoticias(){
         $this->db->select( '*');
@@ -33,6 +26,7 @@ class Noticias extends CI_Model{
             return false;
         }
     }
+
     function bloquenoticias($page_size, $offset){
         $this->db->select( '*');
         $this->db->limit($page_size, $offset);
@@ -41,7 +35,39 @@ class Noticias extends CI_Model{
         }else{
             return false;
         }
+    }
 
+    function noticias_institucion($codigo){
+        $this->db->select('*');
+        $this->db->where('id_institucion',$codigo);
+        if($sql = $this->db->get('noticias')){
+            return $sql->result();
+        }
+        return false;
+    }
+
+    function getPaginacion($limit, $offset, $codigo){
+        $this->db->where('id_institucion', $codigo);
+        $sql = $this->db->get('noticias', $limit, $offset);
+        return $sql->result();
+    }
+
+    function noticias_abanderados(){
+        $this->db->select('*');
+        $this->db->where('id_institucion',0);
+        if($sql = $this->db->get('noticias')){
+            return $sql->result();
+        }
+        return false;
+    }
+
+    function noticia_individual($id){
+        $this->db->where('id_noticias',$id);
+        $sql = $this->db->get('noticias');
+        if($sql->num_rows() == 1){
+            return $sql->row();
+        }
+        return false;
     }
 
 }

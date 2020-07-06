@@ -1,14 +1,19 @@
 <div class="card p-4">
-<h1 class="font-weight-light text-center pb-4">
-    🎓Abanderados
-</h1>
+<?= (null != $this->session->flashdata('mensaje')) ? 
+    '<p class="lead text-center">'.$this->session->flashdata('mensaje').'</p>' : 
+    '';
+?>
+<h2 class="fontGoogle text-center py-4 align-items-center justify-content-center">
+    <img src="<?=base_url('assets/img/sistema/abanderados.svg')?>" width="45">Abanderados
+</h2>
+<hr>
 <form  action="<?=base_url('login/ingresar')?>" method="post">
-    <h4 class="font-weight-bold py-3">Iniciar Sesion</h4>
+    <h4 class="font-weight-bold py-2 azulFuerte">Iniciar Session</h4>
     <div class="form-group">
-        <input class="form-control" type="email" name="correo" placeholder="Correo electronico" required>
+        <input class="form-control font-weight-light" type="email" name="correo" placeholder="Correo electronico" required>
     </div>
     <div class="form-group">
-        <input class="form-control" type="password" name="password" minlength="4" maxlength="15" placeholder="Contraseña" required>
+        <input class="form-control font-weight-light" type="password" name="password" minlength="4" maxlength="15" placeholder="Contraseña" required>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-info form-control">Iniciar</button>

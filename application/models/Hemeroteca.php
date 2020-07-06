@@ -18,6 +18,15 @@ class Hemeroteca extends CI_Model{
             return false;
         }
     }
+
+    function biblioteca_individual($codigo){
+        $this->db->where('id_institucion', $codigo);
+        $sql = $this->db->get('biblioteca');
+        if($sql->num_rows() == 1){
+            return $sql->row();
+        }
+        return false;
+    }   
 }
 
 ?>

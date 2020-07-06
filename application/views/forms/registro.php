@@ -1,9 +1,14 @@
-<div class="card p-4">
-<h1 class="font-weight-light text-center pb-2">
-    🎓Abanderados
-</h1>
+<div class="card p-4" id="contenedor_registro">
 <form id="form_usuario" action="<?=base_url('login/registro')?>" method="post">
-    <h3 class="font-weight-bold py-3">Crea tu cuenta</h3>
+    <?= (null != $this->session->flashdata('mensaje')) ? 
+        '<p class="lead text-center">'.$this->session->flashdata('mensaje').'</p>' : 
+        '';
+    ?>
+    <h2 class="fontGoogle text-center py-4 align-items-center justify-content-center">
+        <img src="<?=base_url('assets/img/sistema/abanderados.svg')?>" width="45">Abanderados
+    </h2>
+    <hr>
+    <h4 class="font-weight-bold azulFuerte py-2">Crea tu cuenta</h4>
     <div class="form-group">     
         <input class="form-control" id="inputNombre" name="nombre" minlength="4" maxlength="30" type="text" placeholder="Ingresa un nombre" required
         title="No se aceptan numeros en el nombre o caracteres especiales">
@@ -20,6 +25,15 @@
         <input class="form-control" id="inputEmail" type="email" name="correo" maxlength="80" placeholder="Correo. Ej.: nombre@gmail.com " required>
         <small class="text-primary" id="outputEmail"></small>
     </div>
+
+    <!--Preferencias de Usuario-->
+    <div class="form-group">
+        <select class="form-control font-weight-light custom-select" id="preferencias" name="institucion" required>
+            <option value="0" selected>Elige tu Preferencia</option>
+        </select>
+        <small class="text-primary" id="outputApellido"></small>
+    </div>
+
     <div class="form-row">
         <div class="form-group col-xs-12 col-ms-12 col-md-6">
             <label for="inputPassword">Contraseña

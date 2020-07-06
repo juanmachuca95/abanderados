@@ -1,44 +1,39 @@
-
-<form class="was-validated" action="<?=base_url('admin/cargarnoticia')?>" method="POST" enctype="multipart/form-data">
-  <h3 class="font-weight-light">Crea una Noticia</h3>
-  <div class="custom-control custom-text mb-3 p-0">
-      <label for="validationInputTitle">Titulo de la Noticia</label>
-      <input type="text" class="form-control font-weight-bold" id="validationInputTitle" name="titulo" required>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<link rel="stylesheet" href="<?php echo base_url();?>/assets/miestilo.css">
+<?php if ($msj = $this->session->flashdata('msj_noticia_bien')) : ?>
+  <p class="font-weight-light text-info">¡<?=$msj?>&#x1f44d;!</p>
+<?php endif; ?>
+<?php if ($msj = $this->session->flashdata('msj_noticia_mal')) : ?>
+  <p class="font-weight-light text-danger">¡<?=$msj?>!</p>
+<?php endif; ?>
+<form action="<?=base_url('admin/cargarnoticia')?>" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <h5 class="font-weight-lighter mb-3">Crea una Noticia</h5>
+    <input class="form-control font-weight-lighter"  type="text" id="titulo"    name="titulo"    placeholder="Titulo de la Noticia" required>
   </div>
-  <div class="custom-control custom-text mb-3 p-0">
-      <label for="validationInputSubtitle">Subtitulo de la Noticia</label>
-      <input type="text" class="form-control font-weight-light" id="validationInputSubtitle" name="subtitulo" required>
+  <div class="form-group">
+    <input class="form-control font-weight-lighter" type="text"  id="subtitulo" name="subtitulo" placeholder="Subtitulo" required>
   </div>
-  <div class="container p-0">
-		<div class="row">
-			<div class="col-sm-12">
-				<div id="frm-test">
-					<div class=>
-            <textarea style="width: 100%; height: 100%;" id="txt-content" 
-           ></textarea>
-          </div>
-          <button class="btn btn-outline-success my-3" id="btn-enviar">Procesar informacion</button>
-			</div>
-		</div>
-      <div class="form-group px-3">
-        <input class="form-control" type="text" id="texto" value="" name="descripcion" required >
-      </div>
-		</div>
-	</div>
-
-  <div class="custom-control custom-date mb-3 p-0">
-      <label for="validationFecha">Fecha de la Noticia</label>
-      <input type="text" class="form-control font-weight-light" id="fecha" name="fecha" value="" readonly>
+  <div class="form-group">
+    <textarea class="form-control" style="width: 100%; height: 100%;" id="txt-content" name="descripcion" 
+      required></textarea>
+    <script>
+      CKEDITOR.replace( 'descripcion' );
+    </script>
   </div>
-  <div class="custom-control custom-checkbox mb-3">
-    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-    <label class="custom-control-label" for="customControlValidation1">Checkeo de Informaci&oacuten</label>
+  <div class="form-group">
+      <label class="font-weight-lighter" for="fecha">Fecha actual de publicación</label>
+      <input class="form-control font-weight-light" type="text" id="fecha" name="fecha" value="" readonly>
   </div>
-
-  <div class="custom-file mb-3">
-    <input type="file" class="custom-file-input" accept="image/*" id="validatedArchivo" name="imagen" required>
-    <label class="custom-file-label" for="validatedArchivo">Imagen de portada en la noticia</label>
+  <div class="form-group">
+    <textarea class="form-control" name="resumen" id="resumen" cols="30" rows="3" placeholder="Breve resumen de la noticia (Maximo 200 caracteres)"></textarea>
   </div>
-  
+  <div class="form-group">
+    <input class="form-control font-weight-lighter" type="text" name="fuente" placeholder="Fuente de la Noticia" required>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="etiqueta" accept="image/*" name="imagen" required>
+    <label class="custom-file-label font-weight-lighter" for="etiqueta">Imagen de Portada</label>
+  </div>
   <button class="btn btn-warning mt-4" type="submit">Crear Noticia</button>
 </form>

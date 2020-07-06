@@ -1,71 +1,61 @@
 <?=$head?>
-
 <?=$nav?>
-<!--
-<h1 class="display-4 text-center p-5">Welcome</h1>
--->
-<div class="container p-0">
-    <div class="row p-0 m-0">    
+<div class="container-fluid p-0" style="background-color: white;">
+    <div class="container p-0">
+        <div class="row m-0">
+            <div class="col-md-12">
+                <!--Seleccion de seccion de Noticias-->
+                <!-- <?php if($inst = $this->session->userdata('interes')) : ?>
+                <h5 class="font-weight-bold text-info p-3"><?=$inst->carreras?></h5>
+                <?php endif;?> -->
+            </div>
+        </div>
         
-        <div class="col-md-9 bg-light p-0 m-0">
-            <?php if(isset($noticias) && !empty($noticias)): 
-                foreach(array_reverse($noticias) as $row): ?>
-            
-            <div class="card mb-3">
-                <!--Titulo-->
-                <h1 class="font-weight-bold py-3 px-5"><?=$row->titulo?></h1>
-                <p class="px-5 pt-0 m-0 font-weight-lighter"><?=$row->subtitulo?></p>
-                    <!--Fecha noticia-->
-                <p class="ml-auto px-5 mt-0 mx-0 mb-3 font-italic text-muted">
-                    <small><?="Fecha de creaci&oacuten: ".$row->fecha?></small>
-                </p>
-                <img class="px-2 bg-light rounded" src="<?=base_url($row->imagen)?>" width="100%;" height="auto" alt="imagen-portada">
-                <div class="px-5 pt-3">
-                    <p><?=$row->descripcion?></p>
+        <div class="row mx-0 py-4">
+            <div class="col-md-10">
+            <?php if(isset($noticias_inst) && !empty($noticias_inst)) : ?>            
+                <div class="card-columns" style="background-color: white;">
+                <?php foreach( array_reverse($noticias_inst) as $row ) : ?>
+
+                    <div class="card shadow mb-5 bg-white rounded">
+                        <!--Titulo-->
+                        
+                        <h4 class="card-title p-3 font-weight-bold">
+                            <a class="text-decoration-none azulFuerte" href="<?=base_url('welcome/noticia/').$row->id_noticias?>">
+                                <?=$row->titulo?>
+                            </a>
+                        </h4>
+                        <img class="card-img-top img-fluid w-100" src="<?=base_url($row->imagen)?>" width="100%;" height="auto" alt="imagen-portada">
+                        <div class="card-body">
+                            <h6 class="card-subtitle py-1 text-muted text-uppercase font-weight-bold">
+                                <?=$row->subtitulo?>
+                            </h6>
+                        </div>
+                        <div class="px-3 font-weight-light text-justify">
+                            <?=$row->resumen?><br>
+                        </div>
+                        <p class="px-3 pt-2">
+                            <small class="text-muted">Fuente: <?=$row->fuente?></small>
+                        </p>
+                        <div class="card-footer bg-transparent borde-light">
+                            <small class="text-muted">
+                                <?php $fecha = explode('-', $row->fecha);?>
+                                <i class="fas fa-calendar-check"></i> Publicado: 
+                                <?=$fecha[2]."/".$fecha[1]."/".$fecha[0];?>
+                            </small>
+                        </div>
+                    </div>
+
+                <?php endforeach;?>
                 </div>
-                <p class="pb-3">
-                <small class="text-muted px-5">Autor: Abanderados</small>
-                </p>
+            <?php endif; ?>
             </div>
-            <?php endforeach; ?>
-
-            <!--Paginacion-->
-            <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-            <?php
-                $next = $current_page + 1;
-                $prev = $current_page - 1;
-
-                if($prev < 0){
-                    $prev = 0;
-                }
-                if($next > $last_page){
-                    $next = $last_page;
-                }
-                ?>
-                <li class="page-item">
-                    <a class="page-link" href="<?=base_url('welcome/noticias/'.$prev)?>">Anterior</a>
-                </li>
-                
-                <?php for($i = 1; $i <= $last_page; $i++) { ?>
-                
-                <li class="page-item">
-                    <a class="page-link" href="<?=base_url('welcome/noticias/'.$i)?>"><?=$i?></a>
-                </li>
-                
-                <?php } ?>
-                <li class="page-item">
-                    <a class="page-link" href="<?=base_url('welcome/noticias/'.$next)?>">Siguiente</a>
-                </li>
-            </ul>
-            </nav>
-            
+           
         </div>
-            <?php endif;  ?>
-            <div class="col-md-2">
-                <?=$aside?>
-            </div>
-        </div>
+        <?php echo $this->pagination->create_links();?>
+        <!--Fin de Fila-->
     </div>
+<!--Fin de container Fluid-->
 </div>
 <?=$footer;?>
+
