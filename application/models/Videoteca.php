@@ -7,9 +7,10 @@
         }
 
         function cargar($data){
-            if($this->db->insert('videoteca', $data)){
-                return true;
+            if($id = $this->db->insert('videoteca', $data)){
+                return $this->db->insert_id();;
             }
+            return false;
         }
 
         function actualizar($id, $data){

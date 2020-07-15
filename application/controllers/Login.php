@@ -7,6 +7,7 @@ class Login extends CI_Controller{
         $this->load->model('Autenticar');
         $this->load->model('Noticias');
         $this->load->model('Hemeroteca');
+        $this->load->model('User');
         $this->load->library(array('session'));
     }
 
@@ -50,6 +51,7 @@ class Login extends CI_Controller{
                     'is_logged'         => true,
                 );
                 $data['interes'] = $this->Hemeroteca->biblioteca_individual($data['cod_institucion']);
+                $this->User->conectado($data['id_usuario'], true);
                 $this->session->set_userdata($data);
                 redirect('welcome','refresh');
             }else{
@@ -131,6 +133,7 @@ class Login extends CI_Controller{
     }
 
     function logout(){
+        $this->User->conectado($this->session->userdata('id_usuario'), false);
         $data = array('id_usuario','nombre','correo','is_logged');
         $this->session->unset_userdata($data);
         $this->session->sess_destroy();

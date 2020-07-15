@@ -77,10 +77,6 @@ footer{
 
 
 
-Update 2019 - Bootstrap 4
-
-You can simply use the SASS mixin to change the number of cards across in each breakpoint / grid tier.
-
 .card-columns {
   @include media-breakpoint-only(xl) {
     column-count: 5;
@@ -130,6 +126,12 @@ componente card-columns . */
 /*Scroll para la lista de links*/
 #ListaDeReproduccion{
     max-height: 300px;
+    overflow: auto;
+}
+
+/*Scroll para la Sala de Chat*/
+.controlScroll{
+    height: 400px;
     overflow: auto;
 }
 

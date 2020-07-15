@@ -24,10 +24,10 @@
                 <i class="fas fa-palette azulMarino"></i> Menu
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item fontGoogle" href="#"><i class="fas fa-cog azulMarino"></i> Configuraciones</a>
-                <div class="dropdown-divider"></div>
+                <!-- <a class="dropdown-item fontGoogle" href="#"><i class="fas fa-cog azulMarino"></i> Configuraciones</a>
+                <div class="dropdown-divider"></div> -->
                 <?php if($this->session->userdata('is_logged')) : ?>
-                <a class="dropdown-item fontGoogle" href="<?=base_url('login/logout')?>"><i class="fas fa-power-off azulMarino"></i> Salir</a>
+                  <a class="dropdown-item fontGoogle" href="<?=base_url('login/logout')?>"><i class="fas fa-power-off azulMarino"></i> Salir</a>
                 <?php endif;?>
               </div>
             </li>

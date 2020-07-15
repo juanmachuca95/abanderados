@@ -1,9 +1,10 @@
+    <!-- Inclui este link para evitar los errores que genera bootstrap 4. Revisar en caso de actualizaciones.-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
     <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
-    <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.js"></script>
+    <script src="<?=base_url()?>assets/js/bootstrap.bundle.js"></script>
     <script src="<?=base_url()?>/assets/js/mi_jquery.js"></script>
     <script src="<?=base_url()?>/assets/js/validation.js"></script>
     <script src="<?=base_url('/assets/js/funciones_biblioteca.js')?>"></script>
-    <script src="<?=base_url('assets/js/mis_funciones_admin/funciones.js')?>"></script>
 </body>
 <div class="container-fluid p-0 bg-light">
         <div class="container p-0">

@@ -8,6 +8,7 @@ class Usuario extends CI_Controller {
         parent:: __construct();
         $this->load->library('session');
         $this->load->model('Autenticar');
+        $this->load->model('User');
     }
 
     public function index(){

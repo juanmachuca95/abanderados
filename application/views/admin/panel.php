@@ -8,20 +8,58 @@
   <div class="col-12 col-sm-3 col-md-3 bg-white p-0">
 
     <!--Menu Opciones Administrador-->
-    <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="far fa-newspaper"></i> Articulos</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-book-open"></i> Biblioteca</a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fas fa-video"></i> Videoteca</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-cogs"></i> Configurar </a>
+    <div class="nav flex-column nav-pills text-left py-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active px-4" id="v-pills-foro-tab" data-toggle="pill" href="#v-pills-foro" role="tab" aria-controls="v-pills-foro" aria-selected="true"><i class="fas fa-comments" style="color:#33ccff"></i> Foro Activo </a>
+
+      <a class="nav-link px-4" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="far fa-newspaper"></i> Articulos</a>
+      <a class="nav-link px-4" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-book-open"></i> Biblioteca</a>
+      <a class="nav-link px-4" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fas fa-video"></i> Videoteca</a>
+      <a class="nav-link px-4" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-cogs"></i> Configurar </a>
     </div>
   </div>
   <!---->
 
   <div class="col-12 col-sm-9 col-md-9 p-0">
     <div class="tab-content" id="v-pills-tabContent">
-      
+      <!--Foro-->
+      <div class="tab-pane fade show active" id="v-pills-foro" role="tabpanel" aria-labelledby="v-pills-foro-tab">
+        <div class="row m-0 bg-light" id="noticias">
+          <div class="col-md-12 p-0">
+              <div class="p-4 text-left">
+                    <p>
+                        <h3 class="font-weight-bold azulMarino"><i class="fas fa-comments" style="color:#33ccff"></i> 
+                            Foro Activo 
+                            <button class="btn btn-warning btn-sm dropdown-toggle text-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><i class="fas fa-users"></i> <b id="cantUsuariosActivos"></b></span>
+                              </button>
+                              <div class="dropdown">
+                              
+                              <div class="dropdown-menu" id="usuariosConectados" aria-labelledby="dropdownMenu2">
+                              </div>
+                            </div>
+                        </h3>
+                    </p>
+                    <hr>
+                    <p class="fontGoogle">¡Conecta con amigos! ¿Podemos ayudarte? ¿Puedes ayudar a alguien? No dudes en escribir. </p>
+                    <small class="text-muted">De ser posible sigue el siguiente formato:</small>
+                    <p class="font-weight-bold text-warning">#Materia + ¿LoQueQuierasSaber?</p>
+                    <input type="number" id="cantidadMensajes" hidden="true">
+                    <input type="number" id="id_usuario" hidden="true" value="<?=$this->session->userdata('id_usuario')?>">
+                    <div id="chatBox" class="controlScroll p-1 text-left" style="background-color: #e6fff2">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12 p-4 bg-light">
+                            <input class="form-control" type="text" id="mensajeAdmin" min="1" placeholder="Escribe la Respuesta como Administrador.">        
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+
       <!--Crear Noticia-->
-      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+      <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <div class="row m-0 bg-light" id="noticias">
           <div class="col-md-6 p-0">
               <div id="crearnoticia">
@@ -49,15 +87,19 @@
         <div class="row m-0 bg-light">
           <div class="col-12 p-0">
             <div class="p-3 font-weight-lighter">
-              <p class="lead"><i class="fas fa-video"></i> Videotecas disponibles:</p>
+              <p class="lead"><i class="fas fa-video"></i> Videotecas disponibles</p>
+              <p><a id="cMateria" href="#">Crear Materia</a></p>
+              <div id="edicionVideoteca"></div>
               <?php if(isset($videoteca) && !empty($videoteca)) : ?>
-                <p> 
+                <p id="addShowLinks"> 
                 <?php  foreach ($videoteca as $row) : ?>
                   <a id="showLinks" class="text-decoration-none" href="<?=$row->id_materia?>">
-                    <?=$row->materia?>
-                  </a> - 
+                    <?=$row->materia?> /
+                  </a>
                 <?php endforeach; ?>
+                </p>
               <?php endif;?>
+
             </div>
           </div>
           <div class="col-12 p-0">
@@ -107,3 +149,4 @@
 
 
 <?=$footer?>
+<script src="<?=base_url('assets/js/mis_funciones_admin/funciones.js')?>"></script>

@@ -25,7 +25,7 @@ function obtenerArchivos(direccion){
 }
 
 function crearListaDirectorio(element, index, array){
-    if(element.includes('\\') || element.includes('//')){
+    if(element.includes('\\') || element.includes('/')){
         element = element.replace('/','');
         element = element.replace('\\','');
 

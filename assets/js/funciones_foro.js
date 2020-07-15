@@ -1,24 +1,11 @@
-$(document).ready(function(){
-    $('#fecha').attr('value', fechaActual() );
-})
-
-function fechaActual(){
-    var actual = new Date();
-    var mes = actual.getMonth()+1;
-    var dia =  actual.getDate();
-    var mostrar = (dia < 10? '0'+dia : dia) +'-'+(mes<10? '0'+ mes : mes)+'-'+actual.getFullYear();
-    return mostrar;
-}
-
-
-/*Mensaje Admin*/
+/*Mensaje Usuario*/
 $(document).keypress(function(e){
-	if(e.which == 13 && $('#mensajeAdmin').val() != ''){
-		var mensaje = $('#mensajeAdmin').val();
-		$('#mensajeAdmin').val(null);
+	if(e.which == 13 && $('#mensaje').val() != ''){
+		var mensaje = $('#mensaje').val();
+		$('#mensaje').val(null);
 		console.log(mensaje);
 		$.ajax({
-			url 	: 'http://localhost/Abanderados/foro/actualizarChatAdmin/',
+			url 	: 'http://localhost/Abanderados/foro/actualizarChat/',
 			type    : 'GET',
 			data	: {cargar : mensaje},
 			success : function(data){
@@ -96,5 +83,4 @@ function listaDeUsuarios(array){
 		}).appendTo('#usuariosConectados');
 	})
 }
-
 

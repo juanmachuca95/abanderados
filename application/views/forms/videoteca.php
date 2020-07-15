@@ -15,5 +15,3 @@
         <button type="submit" class="btn btn-outline-danger">Buscar</button>
     </form>
 </div>
-
-

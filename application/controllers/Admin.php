@@ -1,4 +1,4 @@
-<?php
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller{
@@ -34,7 +34,6 @@ class Admin extends CI_Controller{
             'videoteca'         => $this->Videoteca->get_datos($codigo),
             'institucion'    => $this->Hemeroteca->biblioteca_individual($codigo),
             'form_noticias'  => $this->load->view('forms/noticias','',true),
-            //'form_videoteca' => $this->load->view('forms/videoteca','',true),
             'head'           => $this->load->view('layout/head','',true),
             'footer'         => $this->load->view('layout/footer','',true)
         );
@@ -153,6 +152,17 @@ class Admin extends CI_Controller{
             echo json_encode($enlace);
         }else{
             echo false;
+        }
+    }
+
+    /*Creacion de una para materia para guardar links*/
+    function crearMateria(){
+        if(isset($_POST['okMateria'])){
+            $codigo  = $this->session->userdata('cod_institucion'); 
+            $materia = $_POST['okMateria'];
+            $data = array('materia'=> $materia, 'id_institucion'=>$codigo);
+            $dato = $this->Videoteca->cargar($data);
+            echo json_encode($dato);
         }
     }
 }

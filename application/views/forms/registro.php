@@ -29,7 +29,7 @@
     <!--Preferencias de Usuario-->
     <div class="form-group">
         <select class="form-control font-weight-light custom-select" id="preferencias" name="institucion" required>
-            <option value="0" selected>Elige tu Preferencia</option>
+            <option value="">Elige tu Preferencia</option>
         </select>
         <small class="text-primary" id="outputApellido"></small>
     </div>

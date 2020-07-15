@@ -240,3 +240,48 @@ $('#agregarLink').on('click',function(e){
     $('#elementoNuevo').attr('id','');
 });
 
+
+/*Crea el input para crear la materia*/
+$('#cMateria').click(function(e){
+    e.preventDefault();
+    if(!$('#edicionVideoteca').html()){
+        $('<p>').append(
+            $('<input>',{
+                'placeholder' : 'Materia',
+                'class'       : 'p-1 rounded',
+                'id'          : 'nombreMateria',
+            }),
+            $('<a>',{
+                'html'        : 'Ok',
+                'class'       : 'btn btn-outline-info',
+                'id'          : 'confirmMateria',
+            }),
+        ).appendTo('#edicionVideoteca');
+    }
+})
+
+/*Confirmacion e envio a base de datos de la materia*/
+$(document).on('click', '#confirmMateria', function(e){
+    e.preventDefault();
+    var materia = $('#nombreMateria').val();
+    $.ajax({
+        url   : 'http://localhost/Abanderados/admin/crearMateria/',
+        type  : 'POST',
+        data  : {okMateria : materia},
+        success : function(data){
+            var json = JSON.parse(data);
+            //console.log(json);
+            if(json){
+                $('<a>',{
+                    'class': 'text-decoration-none',
+                    'id'   : 'showLinks',
+                    'href' :  json,
+                    'html' :  materia+' / ',
+                }).appendTo('#addShowLinks');
+            }
+        },
+        error : function(xhr, status, error){
+            alert("Fallo la peticion");
+        }
+    })
+})

@@ -49,6 +49,6 @@ $(document).on('click', '#showVideo',function(e){
 	}).appendTo('#salaDeVideo');
 	$('<p>',{
 		'class' : 'text-center p-2 m-0',
-		'html'	: '<small class="font-weight-light"><i class="fas fa-tv"></i> Abanderados </small>' ,
+		'html'	: '<small class="font-weight-light"><i class="fas fa-tv"></i> Abanderados [ Para mas información recomendamos visitar los canales de youtube de los videos. ] </small>' ,
 	}).appendTo('#salaDeVideo');
 })
